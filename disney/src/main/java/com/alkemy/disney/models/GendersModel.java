@@ -6,19 +6,15 @@ import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
-@Table(name = "characters")
+@Table(name = "genders")
 @Data
-public class CharactersModel {
-
+public class GendersModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
     private String image;
     private String name;
-    private Integer age;
-    private Integer weight;
-    private String history;
 
     private ArrayList<MoviesModel> associatedMovies;
 }

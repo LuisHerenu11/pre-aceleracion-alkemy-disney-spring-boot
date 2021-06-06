@@ -4,21 +4,21 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Entity
-@Table(name = "characters")
+@Table(name = "movies")
 @Data
-public class CharactersModel {
 
+public class MoviesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
     private String image;
-    private String name;
-    private Integer age;
-    private Integer weight;
-    private String history;
+    private String title;
+    private Date creationDate;
+    private Integer qualification;
+    private ArrayList<CharactersModel> associatedCharacters;
 
-    private ArrayList<MoviesModel> associatedMovies;
 }
