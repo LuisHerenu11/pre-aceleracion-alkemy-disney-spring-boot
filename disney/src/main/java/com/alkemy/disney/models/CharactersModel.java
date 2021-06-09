@@ -1,6 +1,8 @@
 package com.alkemy.disney.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,6 +21,8 @@ public class CharactersModel {
     private Integer age;
     private Integer weight;
     private String history;
-
+    @ManyToMany(targetEntity = MoviesModel.class, mappedBy = "characters", cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
+    @JsonIgnoreProperties("characters")
+    @EqualsAndHashCode.Exclude
     private ArrayList<MoviesModel> associatedMovies;
 }
