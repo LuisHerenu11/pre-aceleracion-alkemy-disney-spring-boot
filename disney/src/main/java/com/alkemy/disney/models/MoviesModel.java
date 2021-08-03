@@ -20,9 +20,6 @@ public class MoviesModel {
     private String title;
     private Date creationDate;
     private Integer qualification;
-    @ManyToMany(targetEntity = CharactersModel.class, cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
-    @JoinTable(name = "movies_characters", joinColumns = @JoinColumn(name= "movie_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "character_id",referencedColumnName = "id"))
-    @JsonIgnoreProperties("movies")
     private ArrayList<CharactersModel> associatedCharacters;
 
 }
