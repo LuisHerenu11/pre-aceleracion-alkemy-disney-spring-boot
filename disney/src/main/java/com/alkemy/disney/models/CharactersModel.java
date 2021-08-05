@@ -14,10 +14,16 @@ public class CharactersModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
+    @Column
     private String image;
+    @Column(unique = true)
     private String name;
+    @Column
     private Integer age;
+    @Column
     private Integer weight;
+    @Column
     private String history;
+
     private ArrayList<MoviesModel> associatedMovies;
 }

@@ -16,10 +16,15 @@ public class MoviesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
+    @Column()
     private String image;
+    @Column(unique = true)
     private String title;
+    @Column()
     private Date creationDate;
+    @Column()
     private Integer qualification;
+
     private ArrayList<CharactersModel> associatedCharacters;
 
 }
