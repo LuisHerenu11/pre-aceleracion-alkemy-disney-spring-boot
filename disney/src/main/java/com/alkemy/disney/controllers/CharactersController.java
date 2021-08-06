@@ -13,13 +13,15 @@ public class CharactersController {
     @Autowired
     CharactersService charactersService;
 
-    @GetMapping()
-    public ArrayList<CharactersModel> getCharacters(){
+    @GetMapping("/listCharacters")
+    public ArrayList<CharactersModel> getCharacters()
+    {
         return charactersService.getCharacters();
     }
 
-    @PostMapping()
-    public CharactersModel saveCharacter(@RequestBody CharactersModel character){
+    @PostMapping("/saveCharacter")
+    public CharactersModel saveCharacter(@RequestBody CharactersModel character)
+    {
         return this.charactersService.saveCharacter(character);
     }
 }
