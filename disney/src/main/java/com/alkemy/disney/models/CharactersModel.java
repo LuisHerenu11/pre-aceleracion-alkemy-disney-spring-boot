@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
-@Table(name = "characters")
+@Table(name="characters")
 @Data
 public class CharactersModel {
 
@@ -16,14 +16,18 @@ public class CharactersModel {
     private Long id;
     @Column
     private String image;
-    @Column(unique = true)
+    @Column(name = "name",unique = true)
     private String name;
-    @Column
+    @Column(name = "age")
     private Integer age;
-    @Column
+    @Column(name = "weight")
     private Integer weight;
-    @Column
+    @Column(name = "history")
     private String history;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name= "characters_movies",
+            joinColumns = @JoinColumn(name ="character_id"),
+            inverseJoinColumns = @JoinColumn(name= "movie_id"))
     private ArrayList<MoviesModel> associatedMovies;
 }

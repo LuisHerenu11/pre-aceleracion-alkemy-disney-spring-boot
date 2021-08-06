@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
-@Table(name = "movies")
+@Table(name="movies")
 @Data
 
 public class MoviesModel {
@@ -16,15 +16,16 @@ public class MoviesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-    @Column()
+    @Column(name = "image",unique = true)
     private String image;
-    @Column(unique = true)
+    @Column(name = "title",unique = true)
     private String title;
-    @Column()
+    @Column(name = "creationDate")
     private Date creationDate;
-    @Column()
+    @Column(name = "qualification")
     private Integer qualification;
 
+    @ManyToMany(mappedBy = "associatedMovies", fetch = FetchType.LAZY)
     private ArrayList<CharactersModel> associatedCharacters;
 
 }
