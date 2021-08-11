@@ -3,7 +3,7 @@ package com.alkemy.disney.models;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "genders")
@@ -18,5 +18,6 @@ public class GendersModel {
     @Column(unique = true)
     private String name;
 
-    private ArrayList<MoviesModel> associatedMovies;
+    @OneToMany(mappedBy = "associatedGender",fetch = FetchType.LAZY)
+    private List<MoviesModel> associatedMovies;
 }

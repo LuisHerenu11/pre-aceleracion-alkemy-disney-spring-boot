@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/movies")
@@ -14,7 +15,7 @@ public class MoviesController {
     MoviesService movieService;
 
     @GetMapping()
-    public ArrayList<MoviesModel> getMovies(){
+    public List<MoviesModel> getMovies(){
         return movieService.getMovies();
     }
 

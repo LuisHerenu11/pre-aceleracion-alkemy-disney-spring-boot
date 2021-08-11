@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="characters")
@@ -25,9 +26,11 @@ public class CharactersModel {
     @Column(name = "history")
     private String history;
 
+    //ElementCollection
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name= "characters_movies",
             joinColumns = @JoinColumn(name ="character_id"),
             inverseJoinColumns = @JoinColumn(name= "movie_id"))
-    private ArrayList<MoviesModel> associatedMovies;
+    private List<MoviesModel> associatedMovies;
 }

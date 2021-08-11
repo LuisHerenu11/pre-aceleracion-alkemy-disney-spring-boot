@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/characters")
@@ -14,7 +15,7 @@ public class CharactersController {
     CharactersService charactersService;
 
     @GetMapping("/listCharacters")
-    public ArrayList<CharactersModel> getCharacters()
+    public List<CharactersModel> getCharacters()
     {
         return charactersService.getCharacters();
     }

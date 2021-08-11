@@ -6,14 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class MoviesService {
     @Autowired
     MoviesRepository moviesRepository;
 
-    public ArrayList<MoviesModel> getMovies(){
-        return (ArrayList<MoviesModel>) moviesRepository.findAll();
+    public List<MoviesModel> getMovies(){
+        return (List<MoviesModel>) moviesRepository.findAll();
     }
 
     public MoviesModel saveMovie(MoviesModel movie){

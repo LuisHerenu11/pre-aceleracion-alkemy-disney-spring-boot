@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="movies")
@@ -25,7 +26,12 @@ public class MoviesModel {
     @Column(name = "qualification")
     private Integer qualification;
 
+    //ElementCollection
     @ManyToMany(mappedBy = "associatedMovies", fetch = FetchType.LAZY)
-    private ArrayList<CharactersModel> associatedCharacters;
+    private List<CharactersModel> associatedCharacters;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "gender_id", nullable = false)
+    private GendersModel associatedGender;
 
 }

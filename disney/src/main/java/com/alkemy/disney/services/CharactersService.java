@@ -6,14 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CharactersService {
     @Autowired
     CharactersRepository charactersRepository;
 
-    public ArrayList<CharactersModel> getCharacters(){
-        return(ArrayList<CharactersModel>) charactersRepository.findAll();
+    public List<CharactersModel> getCharacters(){
+        return(List<CharactersModel>) charactersRepository.findAll();
     }
 
     public CharactersModel saveCharacter(CharactersModel character){
